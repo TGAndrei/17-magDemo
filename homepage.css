@@ -4,7 +4,77 @@ body {
   font-family: Helvetica, sans-serif;
   background-color: #f4f4f4;
 }
+/* LOADING SCREEN ################################################################################ */
+.loadingScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 99vh;
+  width: 97vw;
+}
+.loadingScreen ul {
+  width: 108px;
+  height: 108px;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.loadingScreen ul li {
+  width: 30px;
+  height: 30px;
+  margin: 2px;
+  background-color: transparent;
+  animation: loading 0.8s infinite;
+}
 
+.loadingScreen ul li:nth-child(5) {
+  opacity: 0;
+}
+.loadingScreen ul li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.loadingScreen ul li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.loadingScreen ul li:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.loadingScreen ul li:nth-child(6) {
+  animation-delay: 0.4s;
+}
+.loadingScreen ul li:nth-child(9) {
+  animation-delay: 0.5s;
+}
+.loadingScreen ul li:nth-child(8) {
+  animation-delay: 0.6s;
+}
+.loadingScreen ul li:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.loadingScreen ul li:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+@keyframes loading {
+  1% {
+    background-color: #ff686b;
+  }
+}
+.fade-in {
+  animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* NAV MENU + RESPONSIVE HAMBURGER MENU ########################################################## */
 a {
   color: #000;
 }
@@ -120,9 +190,7 @@ a {
   top: 0;
 }
 
-/* 48em = 768px */
-
-@media (min-width: 48em) {
+@media (min-width: 768px) {
   .header li {
     float: left;
   }
@@ -141,4 +209,98 @@ a {
 .logoOnTop {
   height: 40px;
   width: 200px;
+}
+
+/* PRODUCTS LIST ###########################################################################################  */
+.crossMenuBar {
+  border: 1px;
+  padding-top: 50px;
+}
+
+.productsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 12.5px;
+}
+
+.card {
+  padding-top: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  margin-top: 20px;
+}
+.productName {
+  height: 57.6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.price {
+  color: grey;
+  font-size: 18px;
+}
+
+.btn-details {
+  border: none;
+  outline: 0;
+  padding: 12px 29.8px 12px 29.8px;
+  color: white;
+  background-color: #ff686b;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  gap: 2px;
+  display: flex;
+}
+
+.btn-addToCart {
+  border: none;
+  outline: 0;
+  padding: 12px 29.8px 12px 29.8px;
+  color: white;
+  background-color: black;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  gap: 2px;
+  display: flex;
+}
+
+.flexButton {
+  display: flex;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.card > img {
+  height: 200px;
+  width: 200px;
+}
+@media (max-width: 924px) {
+  .productsList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+}
+@media (max-width: 680px) {
+  .productsList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+}
+@media (max-width: 460px) {
+  .productsList {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 }

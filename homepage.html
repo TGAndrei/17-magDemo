@@ -6,13 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Andana Style</title>
     <link rel="stylesheet" href="homepage.css" />
+    <link rel="shortcut icon" href="./photos/icoLogo1.ico" />
     <link
       rel="stylesheet"
       href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
     />
   </head>
   <body>
-    <header class="header">
+    <!-- Loading screen here -->
+    <div class="loadingScreen fade-in">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <div class="header">
       <a href="homepage.html" class="logo"
         ><img class="logoOnTop" src="./photos/logo.jpg" alt=""
       /></a>
@@ -28,6 +44,30 @@
           <a href="#cart"><i class="fas fa-shopping-cart"></i></a>
         </li>
       </ul>
-    </header>
+    </div>
+    <div class="mainContainer">
+      <div class="crossMenuBar">.</div>
+      <div class="productsList">
+        <div class="card">
+          <img
+            src="/w3images/jeans3.jpg"
+            alt="Denim Jeans"
+            style="width: 100%"
+          />
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p>
+            Some text about the jeans. Super slim and comfy lorem ipsum lorem
+            jeansum. Lorem jeamsun denim lorem jeansum.
+          </p>
+          <div class="flexButton">
+            <p><button>See details</button></p>
+            <p><button>Add to Cart</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./src/app.js"></script>
+    r
   </body>
 </html>
