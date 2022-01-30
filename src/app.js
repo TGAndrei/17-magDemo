@@ -1,7 +1,13 @@
 let loadingScreen = document.querySelector(".loadingScreen");
+
+// Function for loadingScreen if page isn't loaded yet.
+
 function removeLoadingScreen() {
   loadingScreen.parentElement.removeChild(loadingScreen);
 }
+
+// Loading products
+
 window.addEventListener("load", async () => {
   const productsURL = "https://61e071bb63f8fc00176187aa.mockapi.io/products";
   const result = await fetch(productsURL);
@@ -16,7 +22,7 @@ window.addEventListener("load", async () => {
             <h2 class="productName">${product.name}</h2>
             <p class="price">${product.price} RON</p>
             <div class="flexButton">
-                <p><button class="btn-details">See details</button></p>
+                <p><button class="btn-details"><a href="details.html?id=${product.id}">See details</a></button></p>
                 <p><button class="btn-addToCart">Add to Cart</button></p>
             </div>
         </div>

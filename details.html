@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Details product</title>
+    <link rel="stylesheet" href="details.css" />
+    <link rel="shortcut icon" href="./photos/icoLogo1.ico" />
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Loading screen here Comment for now because there is nothing to load at the window.onload-->
+    <div class="loadingScreen">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <!-- NAV BAR  -->
+    <div class="header">
+      <a href="homepage.html" class="logo"
+        ><img class="logoOnTop" src="./photos/logo.jpg" alt=""
+      /></a>
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"
+        ><span class="navicon"></span
+      ></label>
+      <ul class="menu">
+        <li><a href="#work">Articole</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#careers">My Account</a></li>
+        <li>
+          <a href="#cart"><i class="fas fa-shopping-cart"></i></a>
+        </li>
+      </ul>
+    </div>
+    <div class="crossMenuBar">.</div>
+
+    <!-- PRODUCT CARD  -->
+    <div class="mainContainer">
+      <div class="product-details">
+        <div class="card">
+          <div class="product-left">
+            <div class="titleProduct">
+              <h1>Toro SLing Chair</h1>
+            </div>
+            <!--DESCRIPITON / DETAILS-->
+            <div class="product-main">
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Ratione voluptatem quam vel, delectus expedita ullam asperiores
+                laudantium modi. Voluptatum eum cum quis ea modi. Reiciendis
+                asperiores aut beatae odit minima.
+              </p>
+            </div>
+            <!--CHOOSE PRODUCT DETAILS-->
+            <div class="product-details">
+              <!--PRODUCT TOTAL-->
+              <div class="product-total">
+                <p>Pret: 500 RON</p>
+              </div>
+            </div>
+            <!-- ADD TO CART BUTTON -->
+            <div class="product-btns">
+              <a href="#" class="product-add">Add To Cart</a>
+            </div>
+          </div>
+          <div class="product-right">
+            <img
+              src="https://res-2.cloudinary.com/dwpujv6in/image/upload/c_pad,dpr_2.0,f_auto,h_930,q_auto,w_930/v1/media/catalog/product/t/r/tr1_lchair_sk_34-toro-lounge-chair-chocolate-smoke.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./src/details.js"></script>
+  </body>
+</html>
