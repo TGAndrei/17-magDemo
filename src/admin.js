@@ -7,18 +7,16 @@ window.addEventListener("load", async () => {
   const productsCard = products
     .map(
       (product) =>
-        `   <tr>
+        `   <tr class="here">
           <td>${product.id}</td>
           <td>${product.name}</td>
           <td>${product.price}</td>
           <td>${product.desc}</td>
           <td>${product.img}</td>
           <td class="actions">
-            <a href="#" class="visibleOrNot"
-              ><i class="far fa-eye-slash"></i
-            ></a>
-            <a href="#" class="edit"><i class="fas fa-pen fa-xs"></i></a>
-            <a href="" class="trash"><i class="fas fa-trash fa-xs"></i></a>
+          <p class="visibleOrNot"><i class="far fa-eye-slash"></i></p>
+          <p class="edit"><i class="fas fa-pen fa-xs"></i></p>
+          <p class="trash"><i class="fas fa-trash fa-xs"></i></p>
           </td>
         </tr>
       `
@@ -26,3 +24,21 @@ window.addEventListener("load", async () => {
     .join("");
   productContainer.innerHTML = productsCard;
 });
+let removeButton = document.querySelector("tbody");
+console.log(removeButton);
+removeButton.addEventListener("click", deleteProduct);
+
+function deleteProduct(event) {
+  console.log(event.target.classList);
+  if (event.target.classList.contains("fa-trash")) {
+    event.target.parentElement.parentElement.parentElement.remove();
+  }
+}
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
