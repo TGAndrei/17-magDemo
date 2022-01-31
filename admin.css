@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #ffffff;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.content h2 {
+  margin: 0;
+  padding: 25px 0;
+  font-size: 22px;
+  border-bottom: 1px solid #ebebeb;
+  color: #666666;
+}
+.topButtons {
+  display: flex;
+  gap: 10px;
+}
+.create-contact {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #38b673;
+  font-weight: bold;
+  font-size: 14px;
+  color: #ffffff;
+  padding: 10px 15px;
+  margin: 15px 0;
+}
+.create-contact:hover {
+  background-color: #32a367;
+}
+.backToSite {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #f18385;
+  font-weight: bold;
+  font-size: 14px;
+  color: #ffffff;
+  padding: 10px 15px;
+  margin: 15px 0;
+}
+.backToSite:hover {
+  background-color: #f1686b;
+}
+
+table {
+  width: 100%;
+  padding-top: 30px;
+  border-collapse: collapse;
+}
+table thead {
+  background-color: #ebeef1;
+  border-bottom: 1px solid #d3dae0;
+}
+table thead td {
+  padding: 10px;
+  font-weight: bold;
+  color: #767779;
+  font-size: 14px;
+}
+tr {
+  border-bottom: 1px solid #d3dae0;
+}
+
+tr:hover {
+  background-color: #376ab7;
+}
+
+tr:hover td {
+  color: #ffffff;
+}
+
+td {
+  padding: 10px;
+}
+td:nth-child(1) {
+  color: #a5a7a9;
+}
+.actions {
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.edit,
+.trash,
+.visibleOrNot {
+  text-decoration: none;
+  color: #d31919;
+  padding: 10px 12px;
+}
