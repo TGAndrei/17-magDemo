@@ -33,13 +33,8 @@ window.addEventListener("load", async () => {
   removeLoadingScreen();
 });
 
-// test keybind to admin.html
+// keybind to acces admin.html ( " CTRL " + " ` ")
 
-// function doc_keyUp(e) {
-//   if (e.ctrlKey && e.keyCode == 192) {
-//     window.open("admin.html");
-//   }
-// }
 document.onkeyup = function (e) {
   var evt = window.event || e;
   if (evt.keyCode == 192 && evt.ctrlKey) {
