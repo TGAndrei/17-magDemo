@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PANNEL</title>
+    <title>Admin panel</title>
     <link rel="stylesheet" href="admin.css" />
     <link
       rel="stylesheet"
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="content">
-      <h2>Product list</h2>
+      <h2>ADMIN PANEL : Product list</h2>
       <div class="topButtons">
         <button class="create-product" onclick="openForm()">
           Create new product
@@ -46,7 +46,7 @@
           <label for="productPrice"><b>Price</b></label>
           <input
             type="text"
-            placeholder="Enter Password"
+            placeholder="Enter Price"
             name="productPrice"
             id="productPrice"
             required
@@ -89,75 +89,7 @@
             <td></td>
           </tr>
         </thead>
-        <tbody id="addNewRow">
-          <tr class="here">
-            <td>1</td>
-            <td>Awesome Fresh Ball</td>
-            <td>854 RON</td>
-            <td>
-              New range of formal shirts are designed keeping you in mind. With
-              fits and styling that will make you stand apart
-            </td>
-            <td>http://placeimg.com/640/480/fashion</td>
-            <td class="actions">
-              <p class="visibleOrNot"><i class="far fa-eye-slash"></i></p>
-              <p class="edit"><i class="fas fa-pen fa-xs"></i></p>
-              <p class="trash"><i class="fas fa-trash fa-xs"></i></p>
-            </td>
-          </tr>
-
-          <tr class="here">
-            <td>2</td>
-            <td>1943</td>
-            <td>Ace Of Spades</td>
-            <td>Love Me Like A Reptile</td>
-            <td>Clarke/Kilmister/Taylor</td>
-            <td class="actions">
-              <p class="visibleOrNot"><i class="far fa-eye-slash"></i></p>
-              <p class="edit"><i class="fas fa-pen fa-xs"></i></p>
-              <p class="trash"><i class="fas fa-trash fa-xs"></i></p>
-            </td>
-          </tr>
-
-          <tr class="here">
-            <td>3</td>
-            <td>1944</td>
-            <td>Ace Of Spades</td>
-            <td>Shoot You In The Back</td>
-            <td>Clarke/Kilmister/Taylor</td>
-            <td class="actions">
-              <p class="visibleOrNot"><i class="far fa-eye-slash"></i></p>
-              <p class="edit"><i class="fas fa-pen fa-xs"></i></p>
-              <p class="trash"><i class="fas fa-trash fa-xs"></i></p>
-            </td>
-          </tr>
-
-          <tr class="here">
-            <td>4</td>
-            <td>1945</td>
-            <td>Ace Of Spades</td>
-            <td>Live To Win</td>
-            <td>Clarke/Kilmister/Taylor</td>
-            <td class="actions">
-              <p class="visibleOrNot"><i class="far fa-eye-slash"></i></p>
-              <p class="edit"><i class="fas fa-pen fa-xs"></i></p>
-              <p class="trash"><i class="fas fa-trash fa-xs"></i></p>
-            </td>
-          </tr>
-
-          <tr class="here">
-            <td>5</td>
-            <td>1946</td>
-            <td>Ace Of Spades</td>
-            <td>Fast And Loose</td>
-            <td>Clarke/Kilmister/Taylor</td>
-            <td class="actions">
-              <p class="visibleOrNot"><i class="far fa-eye-slash"></i></p>
-              <p class="edit"><i class="fas fa-pen fa-xs"></i></p>
-              <p class="trash"><i class="fas fa-trash fa-xs"></i></p>
-            </td>
-          </tr>
-        </tbody>
+        <tbody id="addNewRow"></tbody>
       </table>
     </div>
     <script src="./src/admin.js"></script>

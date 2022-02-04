@@ -26,29 +26,49 @@ window.addEventListener("load", async () => {
   productContainer.innerHTML = productsCard;
 });
 
-// Function for delete a product from html (upgrade needed)
+// Function for delete a product from API
 let removeButton = document.querySelector("tbody");
-console.log(removeButton);
 removeButton.addEventListener("click", deleteProduct);
 function deleteProduct(event) {
-  console.log(event.target.classList);
   if (event.target.classList.contains("fa-trash")) {
-    event.target.parentElement.parentElement.parentElement.remove();
+    let targetId =
+      event.target.parentElement.parentElement.parentElement.firstElementChild
+        .textContent;
+    console.log(targetId);
+    async function deleteProductOnApi() {
+      let newProduct = await fetch(
+        `https://61e071bb63f8fc00176187aa.mockapi.io/products/${targetId}`,
+        {
+          method: "DELETE",
+        }
+      );
+    }
+    deleteProductOnApi();
+    loadProducts();
   }
 }
 
 // Functions for open and close the "add new product" popup
 //// After pressing the "Add new product", will display the menu for adding new product, nor for editing the product
 function openForm() {
+  if (document.getElementById("editButton")) {
+    document.getElementById("myForm").style.display = "none";
+    document.getElementById("productId").value = "";
+    document.getElementById("productName").value = "";
+    document.getElementById("productPrice").value = "";
+    document.getElementById("productDesc").value = "";
+    document.getElementById("imgURL").value = "";
+    document
+      .querySelector("#myForm > div > div > button:nth-child(1)")
+      .removeAttribute("id");
+  }
   document.getElementById("myForm").style.display = "block";
-  let changeSubmitWithEdit = (document.querySelector(
-    "#myForm > div > h1"
-  ).innerHTML = "Add product");
+  document.querySelector("#myForm > div > h1").innerHTML = "Add product";
   document.querySelector(
     "#myForm > div > div > button:nth-child(1)"
   ).innerHTML = "Submit";
 }
-//// After pressing "close" the inputs will be eptied
+//// After pressing "close" the inputs will be emptied
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
   document.getElementById("productId").value = "";
@@ -56,16 +76,9 @@ function closeForm() {
   document.getElementById("productPrice").value = "";
   document.getElementById("productDesc").value = "";
   document.getElementById("imgURL").value = "";
-}
-
-// Making a new row after pressing submit, making an object from inputs
-let selectedRow = null;
-function Product(id, name, price, desc, img) {
-  this.id = id;
-  this.name = name;
-  this.price = price;
-  this.desc = desc;
-  this.img = img;
+  document
+    .querySelector("#myForm > div > div > button:nth-child(1)")
+    .removeAttribute("id");
 }
 
 let submitButton = document.querySelector(
@@ -79,7 +92,7 @@ function showNewProduct() {
   let productPrice = document.getElementById("productPrice").value;
   let productDesc = document.getElementById("productDesc").value;
   let productImg = document.getElementById("imgURL").value;
-  // checking if any input is empty for not creating an useless object
+  // checking if any input is empty for not creating an useless CRUD command
   if (
     productId != 0 &&
     productName != 0 &&
@@ -87,48 +100,50 @@ function showNewProduct() {
     productDesc != 0 &&
     productImg != 0
   ) {
-    // create the object wich i will use later for the CREATE (crud)
-    let product = new Product(
-      `${productId}`,
-      `${productName}`,
-      `${productPrice}`,
-      `${productDesc}`,
-      `${productImg}`
-    );
-    console.log(product);
-  }
-  // Add the row with the info from inputs
-  function insertDataFromProductLabel() {
-    let table = document
-      .getElementById("storeList")
-      .getElementsByTagName("tbody")[0];
-    let newRow = table.insertRow(table.length);
-    let cell6 = newRow.insertCell(0);
-    cell6.innerHTML = `${productId}`;
-    let cell5 = newRow.insertCell(1);
-    cell5.innerHTML = `${productName}`;
-    let cell4 = newRow.insertCell(2);
-    cell4.innerHTML = `${productPrice}`;
-    let cell3 = newRow.insertCell(3);
-    cell3.innerHTML = `${productDesc}`;
-    let cell2 = newRow.insertCell(4);
-    cell2.innerHTML = `${productImg}`;
-    let cell1 = newRow.insertCell(5);
-    cell1.innerHTML = `<p class="visibleOrNot"><i class="far fa-eye-slash"></i></p>
-    <p class="edit"><i class="fas fa-pen fa-xs"></i></p>
-    <p class="trash"><i class="fas fa-trash fa-xs"></i></p>`;
-    cell1.classList.add("actions");
-  }
-  if (
-    productId != 0 &&
-    productName != 0 &&
-    productPrice != 0 &&
-    productDesc != 0 &&
-    productImg != 0
-  )
-    insertDataFromProductLabel();
-  else {
-    alert("You have to complete all blank spaces");
+    // Command for PUT to api (Edit product)
+    if (document.getElementById("editButton")) {
+      async function editProductOnApi() {
+        let newProduct = await fetch(
+          `https://61e071bb63f8fc00176187aa.mockapi.io/products/${productId}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              id: `${productId}`,
+              name: `${productName}`,
+              price: `${productPrice}`,
+              desc: `${productDesc}`,
+              img: `${productImg}`,
+            }),
+          }
+        );
+      }
+      editProductOnApi();
+    }
+    // Command for POST to api (Add new)
+    else {
+      async function addNewProductOnApi() {
+        let newProduct = await fetch(
+          "https://61e071bb63f8fc00176187aa.mockapi.io/products",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              id: `${productId}`,
+              name: `${productName}`,
+              price: `${productPrice}`,
+              desc: `${productDesc}`,
+              img: `${productImg}`,
+            }),
+          }
+        );
+      }
+      addNewProductOnApi();
+    }
   }
 }
 
@@ -154,16 +169,8 @@ function editProduct(event) {
     document.querySelector(
       "#myForm > div > div > button:nth-child(1)"
     ).innerHTML = "Edit";
-    //
+    document
+      .querySelector("#myForm > div > div > button:nth-child(1)")
+      .setAttribute("id", "editButton");
   }
 }
-
-// let selectedRow = null;
-// function onSubmit(e) {
-//   event.preventDefault();
-//   let newProductLabel = readFromNewProduct();
-//   if (selectedRow === null) {
-//     insertDataFromProductLabel(newProductLabel);
-//   } else {
-//   }
-// }
