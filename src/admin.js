@@ -48,8 +48,9 @@ function deleteProduct(event) {
   }
 }
 
-// Functions for open and close the "add new product" popup
-//// After pressing the "Add new product", will display the menu for adding new product, nor for editing the product
+// Functions for open and close the "add new product"/"edit product" popup
+/*After pressing the "Add new product", will display the menu for adding new product, nor for editing the product.
+  If you press "Add new product" when pop-up for "Edit product" it's already there, empty the inputs and delete the "editButton" id */
 function openForm() {
   if (document.getElementById("editButton")) {
     document.getElementById("myForm").style.display = "none";
@@ -174,3 +175,5 @@ function editProduct(event) {
       .setAttribute("id", "editButton");
   }
 }
+
+// DE PUS GO UP PAGE CAND APESI PE EDIT
