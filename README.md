@@ -1,1 +1,2 @@
-# 17-magDemo
+# eCommerce site
+* For open admin panel, press " CTRL " + " ` "
