@@ -15,9 +15,7 @@
     <div class="content">
       <h2>ADMIN PANEL : Product list</h2>
       <div class="topButtons">
-        <button class="create-product" onclick="openForm()">
-          Create new product
-        </button>
+        <button class="create-product">Create new product</button>
         <a href="homepage.html" class="backToSite">Go back to site</a>
       </div>
       <!-- ADD PRODUCT POPUP START HERE -->
@@ -25,21 +23,12 @@
         <div class="form-container">
           <h1>Add product</h1>
 
-          <label for="productId"><b>ProductId:</b></label>
-          <input
-            type="text"
-            placeholder="Enter an unused id"
-            name="productId"
-            id="productId"
-            required
-          />
-
           <label for="productName"><b>Name:</b></label>
           <input
             type="text"
             placeholder="Enter the name"
             name="productName"
-            id="productName"
+            id="name"
             required
           />
 
@@ -48,7 +37,7 @@
             type="text"
             placeholder="Enter Price"
             name="productPrice"
-            id="productPrice"
+            id="price"
             required
           />
 
@@ -57,7 +46,7 @@
             type="text"
             placeholder="Enter Description"
             name="productDescription"
-            id="productDesc"
+            id="desc"
             required
           />
 
@@ -69,11 +58,23 @@
             id="imgURL"
             required
           />
+          <input type="hidden" id="productId" name="productId" />
           <div class="addProductButtons">
-            <button type="submit" class="btn">Submit</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">
-              Close
+            <button
+              data-product-id="${product.id}"
+              type="edit"
+              class="btn edit"
+            >
+              Edit
             </button>
+            <button
+              data-product-id="${product.id}"
+              type="submit"
+              class="btn submit"
+            >
+              Submit
+            </button>
+            <button type="button" class="btn cancel">Close</button>
           </div>
         </div>
       </div>

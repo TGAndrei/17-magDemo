@@ -77,3 +77,20 @@ async function addToCart(event) {
   console.log(cart);
   if (cart.length > 0) localStorage.setItem("cart", JSON.stringify(cart));
 }
+
+// Go to cart just if cart isn't empty
+
+const cartBtn = document.querySelector(
+  "body > div.header > ul > li:nth-child(2) > a"
+);
+cartBtn.addEventListener("click", ifCartIsEmpty);
+function ifCartIsEmpty() {
+  if (
+    localStorage.getItem("cart") == null ||
+    localStorage.getItem("cart") == "[]"
+  ) {
+    alert("Add a product in cart first");
+  } else {
+    window.open("cart.html", "_self");
+  }
+}

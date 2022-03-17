@@ -57,8 +57,8 @@ function handleCartActions(event) {
   } else if (targetButton.classList.contains("delete")) {
     productInCart.noOfProducts = 0;
     cart = cart.filter((product) => product.id != productInCart.id);
-
     targetButton.parentNode.parentNode.remove();
+    ifCartIsEmpty();
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -73,5 +73,15 @@ function handleCartActions(event) {
     });
     let totalPriceCard = `${total} RON`;
     document.querySelector(".total-amount").innerHTML = totalPriceCard;
+  }
+}
+
+// If cart is empty, go back to main page
+
+function ifCartIsEmpty() {
+  let carthere = JSON.parse(localStorage.getItem("cart"));
+  console.log(carthere);
+  if (carthere.length == 1) {
+    window.location.replace("homepage.html");
   }
 }

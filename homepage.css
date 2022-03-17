@@ -290,6 +290,19 @@ a {
   height: 200px;
   width: 200px;
 }
+.posterPage {
+  margin: 30px 100px 60px 100px;
+  display: flex;
+  justify-content: center;
+}
+.posterPage img {
+  width: 80%;
+  height: 10%;
+  align-items: center;
+}
+#scrollHere {
+  padding-top: 50px;
+}
 @media (max-width: 924px) {
   .productsList {
     display: grid;

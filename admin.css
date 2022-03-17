@@ -49,7 +49,9 @@ body {
 .backToSite:hover {
   background-color: #f1686b;
 }
-
+body > div.header > ul > li:nth-child(3) > a:hover {
+  cursor: pointer;
+}
 table {
   width: 100%;
   padding-top: 30px;
@@ -92,15 +94,18 @@ td:nth-child(1) {
 .actions > p:hover {
   cursor: pointer;
 }
-.edit,
-.trash,
-.visibleOrNot {
+.editBtn {
+  text-decoration: none;
+  color: green;
+  padding: 10px 12px;
+}
+.trash {
   text-decoration: none;
   color: #d31919;
   padding: 10px 12px;
 }
 
-/* TEST FORM FOR ADD NEW PRODUCT */
+/* TEST FORM FOR ADD NEW */
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
   background-color: #555;
